@@ -6,7 +6,9 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springmvc.controller.EmployeeController;
 
-
+@Configuration
+@EnableWebMvc
+@ComponentScan("org.springmvc")
 public class WebConfig {
 
 }
