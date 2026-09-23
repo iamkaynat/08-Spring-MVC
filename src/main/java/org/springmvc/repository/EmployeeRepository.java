@@ -10,16 +10,18 @@ import java.util.Map;
 
 @Repository
 public class EmployeeRepository {
-    Map<String, Employee> hashMap = new HashMap<>();
+    Map<Integer, Employee> hashMap = new HashMap<>();
+    private int nextId= 106;
     public EmployeeRepository(){
-        hashMap.put("1", new Employee("1","Kayo", "Engineering", "70000"));
-        hashMap.put("2", new Employee("2","Kayo", "Engineering", "70000"));
-        hashMap.put("3", new Employee("3","Kayo", "Engineering", "70000"));
-        hashMap.put("4", new Employee("4","Kayo", "Engineering", "70000"));
+        hashMap.put(1, new Employee(1,"Kayo", "Engineering", "70000"));
+        hashMap.put(2, new Employee(2,"Kayo", "Engineering", "70000"));
+        hashMap.put(3, new Employee(3,"Kayo", "Engineering", "70000"));
+        hashMap.put(4, new Employee(4,"Kayo", "Engineering", "70000"));
 
     }
     public Employee addEmployee(Employee employee){
-        hashMap.put(employee.getId(), employee);
+        employee.setId(nextId);
+        hashMap.put(nextId++, employee);
         return employee;
     }
     public List<Employee> getAllEmployees(){
@@ -28,11 +30,11 @@ public class EmployeeRepository {
         return employeeList;
     }
 
-    public Employee getEmployeeById(String id){
+    public Employee getEmployeeById(int id){
         return hashMap.get(id);
     }
 
-    public String deleteEmployee(String id){
+    public String deleteEmployee(int id){
         hashMap.remove(id);
         return "S";
     }

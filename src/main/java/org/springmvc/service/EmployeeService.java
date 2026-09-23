@@ -20,11 +20,11 @@ public class EmployeeService {
     public Employee addEmployee(Employee employee){
         return employeeRepository.addEmployee(employee);
     }
-    public Employee getEmployeeById(String id){
+    public Employee getEmployeeById(int id){
 
         return employeeRepository.getEmployeeById(id);
     }
-    public String deleteEmployee(String id){
+    public String deleteEmployee(int id){
         return  employeeRepository.deleteEmployee(id);
     }
 

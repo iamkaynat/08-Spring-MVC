@@ -24,18 +24,25 @@ public class EmployeeController {
     @GetMapping("/employees")
     @ResponseBody
     public List<Employee> getEmployees(){
+
         return employeeService.getAllEmployees();
+    }
+    @GetMapping("/employees/{id}")
+    @ResponseBody
+    public Employee getEmployeeById(@PathVariable("id") int id){
+        return employeeService.getEmployeeById(id);
     }
 
     @PostMapping("/employee")
     @ResponseBody
     public Employee addEmployee(@RequestBody Employee employee){
+
         return employeeService.addEmployee(employee);
     }
 
     @DeleteMapping("/employee/{id}")
     @ResponseBody
-    public String deleteEmployee(@PathVariable("id") String id){
+    public String deleteEmployee(@PathVariable("id") int id){
         String delete = employeeService.deleteEmployee(id);
         if(delete.equals("S"))
             return "Employee deleted successfully";
@@ -47,5 +54,38 @@ public class EmployeeController {
     public List<Employee> getEmployeesByDepartment(@RequestParam("department") String department){
         return employeeService.getEmployeeByDepartment(department);
     }
+    // --------------------------------------------------
+    // DISPLAY REGISTRATION FORM
+    // --------------------------------------------------
+
+    @GetMapping("/employees/register")
+    public String showRegistrationForm() {
+
+        return "employee-form";
+    }
+
+    @PostMapping("/employees/register")
+    @ResponseBody
+    public String regsiterEmployee(@RequestParam("name") String name,
+                                   @RequestParam("department") String department,
+                                   @RequestParam("salary") String salary){
+        Employee employee = new Employee(name,department,salary);
+        Employee savedEmployee = addEmployee(employee);
+        return """
+                Employee registered successfully!
+
+                ID: %d
+                Name: %s
+                Department: %s
+                Salary: %s
+                """.formatted(
+                savedEmployee.getId(),
+                savedEmployee.getName(),
+                savedEmployee.getDepartment(),
+                savedEmployee.getSalary()
+        );
+    }
+
+
 
 }
