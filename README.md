@@ -29,7 +29,7 @@ This repository focuses on understanding **Spring MVC internally and practically
 
 ## 7.1 Web Fundamentals
 
-**Status:** 🟡 In Progress
+**Status:** 
 
 Topics:
 
@@ -90,7 +90,7 @@ Client
 
 ## 7.2 HTTP in Depth
 
-**Status:** ⬜ Not Started
+**Status:** 
 
 Topics:
 
@@ -113,7 +113,7 @@ Topics:
 
 ## 7.3 Servlet Fundamentals
 
-**Status:** ⬜ Not Started
+**Status:** 
 
 Topics:
 
@@ -137,7 +137,7 @@ Topics:
 
 ## 7.4 DispatcherServlet
 
-**Status:** ⬜ Not Started
+**Status:**
 
 Topics:
 
@@ -176,7 +176,7 @@ View / Response
 
 ## 7.5 Controllers
 
-**Status:** ⬜ Not Started
+**Status:** 
 
 Topics:
 
